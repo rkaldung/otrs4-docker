@@ -21,11 +21,15 @@ The OTRS root user is "root@localhost", so is the password.
 
 Replace DOCKERHOST with the IP / Hostname of your Docker Server.
 
+The cronjobs are enabled, you can change them via SSH.
+
 ##Note
 
 This instance uses mod_perl. We needed to modify the Apache config (/etc/httpd/conf.d/zzz_otrs.conf). The default configuration checks for mod_perl.c, which does not comply to CentOS which needs mod_perl.so.
 
 Look at L:18 of the DOCKERFILE for more details.
+
+The MySQL root user has no password set. You need to set it yourself (if needed), or use an external database connection. You can change the connection settings in /opt/otrs/Kernel/Config.pm.
 
 ##System Design
 
@@ -36,3 +40,7 @@ This DOCKERFILE add's:
 * All needed dependencies
 * OTRS 4.0.2 (RPM)
 
+
+Have fun.
+
+If you have any questions feel free to send me an e-mail to jn@znuny.com .
