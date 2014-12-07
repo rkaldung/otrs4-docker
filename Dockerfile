@@ -25,5 +25,11 @@ RUN chmod +x /*.sh
 RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key && ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key && sed -i "s/#UsePrivilegeSeparation.*/UsePrivilegeSeparation no/g" /etc/ssh/sshd_config && sed -i "s/UsePAM.*/UsePAM no/g" /etc/ssh/sshd_config
 RUN echo "root:root" | chpasswd
 
+#enable crons
+WORKDIR /opt/otrs/var/cron/
+USER otrs
+CMD ["/bin/bash -c 'for foo in *.dist; do cp $foo `basename $foo .dist`; done'"]
+
+USER root
 EXPOSE 22 80
 CMD ["/bin/bash", "/run.sh"]

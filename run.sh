@@ -11,5 +11,7 @@ wait
 wait
 /opt/otrs/bin/otrs.RebuildConfig.pl &
 wait
+/opt/otrs/bin/Cron.sh start otrs &
+wait
 service httpd start
 exec /usr/sbin/sshd -D
