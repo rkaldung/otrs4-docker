@@ -6,6 +6,7 @@ A DOCKERFILE to setup an OTRS 4 Instance using CentOS 6 as base Image.
 This OTRS Version is the regular, non ITSM Version.
 
 ##Access
+
 This System uses two exposed ports 80 (HTTPD) / 22 (SSHD). SSH is necessary to change some the config files (Config.pm), add ldap stuff and so on. If you use the defaults you can disable port 22.
 
 The root user is "root", so is the password.
@@ -40,6 +41,12 @@ This DOCKERFILE add's:
 * All needed dependencies
 * OTRS 4.0.2 (RPM)
 
+##Run Container
+
+     docker pull hanneshal/otrs4-docker
+     docker run -d -p 80 -p 22 --name otrs402 hanneshal/otrs4-docker
+     docker ps (to get the ports)
+     
 
 Have fun.
 
