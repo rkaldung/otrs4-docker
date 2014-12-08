@@ -3,11 +3,11 @@
 
 A DOCKERFILE to setup an OTRS 4 Instance using CentOS 6 as base Image.
 
-This OTRS Version is the regular, non ITSM Version.
+This OTRS Version is the regular, (non) ITSM Version. See "Run Container" section for more details and the ITSM Version.
 
 ##Access
 
-This System uses two exposed ports 80 (HTTPD) / 22 (SSHD). SSH is necessary to change some the config files (Config.pm), add ldap stuff and so on. If you use the defaults you can disable port 22.
+This System uses two exposed ports 80 (HTTPD) / 22 (SSHD). SSH is necessary to change some the config files (Config.pm), add LDAP stuff and so on. If you use the defaults you can disable port 22.
 
 The root user is "root", so is the password.
 **Please change this values in production!**
@@ -35,18 +35,26 @@ The MySQL root user has no password set. You need to set it yourself (if needed)
 ##System Design
 
 This DOCKERFILE add's: 
-* MySQL
-* Apache
-* Perl
-* All needed dependencies
-* OTRS 4.0.2 (RPM)
+ * MySQL
+ * Apache
+ * Perl
+ * All needed dependencies
+ * OTRS 4.0.2 (RPM)
 
 ##Run Container
 
+### Non-ITSM
      docker pull hanneshal/otrs4-docker
      docker run -d -p 80 -p 22 --name otrs402 hanneshal/otrs4-docker
      docker ps (to get the ports)
      
+### ITSM 
+     docker pull hanneshal/otrs4-docker:latest-itsm
+     docker run -d -p 80 -p 22 --name otrsitsm402 hanneshal/otrs4-docker:latest-itsm
+     docker ps (to get the ports)
+
+     **Note: On first run the ITSM gets installed. This could take up to 2 minutes. 
+     After the installation the SSH and Webserver daemons are started. Please be patient.**
 
 Have fun.
 
