@@ -11,9 +11,9 @@ wait
 wait
 /opt/otrs/bin/otrs.RebuildConfig.pl &
 wait
-wget ftp://ftp.otrs.org/pub/otrs/itsm/bundle4/ITSM-4.0.2.opm &
+wget ftp://ftp.otrs.org/pub/otrs/itsm/bundle4/ITSM-4.0.3.opm &
 wait
-/opt/otrs/bin/otrs.PackageManager.pl -a install -p ITSM-4.0.2.opm &
+/opt/otrs/bin/otrs.PackageManager.pl -a install -p ITSM-4.0.3.opm &
 wait
 /opt/otrs/bin/Cron.sh start otrs &
 wait

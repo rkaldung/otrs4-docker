@@ -17,7 +17,7 @@ You can access the OTRS using the link:
 * http://DOCKERHOST:PORT/otrs/index.pl (Agent Interface)
 * http://DOCKERHOST:PORT/otrs/customer.pl (Customer Interface)
 
-The OTRS root user is "root@localhost", so is the password.
+The OTRS root user is "root@localhost", the password is root.
 **Please change this values in production!**
 
 Replace DOCKERHOST with the IP / Hostname of your Docker Server.
@@ -39,7 +39,7 @@ This DOCKERFILE add's:
 * Apache
 * Perl
 * All needed dependencies
-* OTRS 4.0.2 (RPM) + ITSM 4.0.2 (OPM Package)
+* OTRS 4.0.3 (RPM) + ITSM 4.0.3 (OPM Package)
 
 ##Run Container
 
