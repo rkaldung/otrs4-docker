@@ -14,10 +14,10 @@ The root user is "root", so is the password.
 
 You can access the OTRS using the link: 
 
-* http://DOCKERHOST:PORT/otrs/index.pl (Agent Interface)
-* http://DOCKERHOST:PORT/otrs/customer.pl (Customer Interface)
+ - http://DOCKERHOST:PORT/otrs/index.pl (Agent Interface)
+ - http://DOCKERHOST:PORT/otrs/customer.pl (Customer Interface)
 
-The OTRS root user is "root@localhost", so is the password.
+The OTRS root user is "root@localhost", the password is root.
 **Please change this values in production!**
 
 Replace DOCKERHOST with the IP / Hostname of your Docker Server.
@@ -35,11 +35,11 @@ The MySQL root user has no password set. You need to set it yourself (if needed)
 ##System Design
 
 This DOCKERFILE add's: 
- * MySQL
- * Apache
- * Perl
- * All needed dependencies
- * OTRS 4.0.2 (RPM)
+ - MySQL
+ - Apache
+ - Perl
+ - All needed dependencies
+ - OTRS 4.0.2 (RPM)
 
 ##Run Container
 
@@ -53,8 +53,8 @@ This DOCKERFILE add's:
      docker run -d -p 80 -p 22 --name otrsitsm402 hanneshal/otrs4-docker:latest-itsm
      docker ps (to get the ports)
 
-     **Note: On first run the ITSM gets installed. This could take up to 2 minutes. 
-     After the installation the SSH and Webserver daemons are started. Please be patient.**
+ **Note: On first run the ITSM is being installed. This could take up to 2 minutes. 
+ After the installation the SSH and Webserver daemons are started. Please be patient.**
 
 Have fun.
 
