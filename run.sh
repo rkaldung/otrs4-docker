@@ -11,11 +11,13 @@ wait
 wait
 /opt/otrs/bin/otrs.RebuildConfig.pl &
 wait
-wget ftp://ftp.otrs.org/pub/otrs/itsm/bundle4/ITSM-4.0.3.opm &
+wget ftp://ftp.otrs.org/pub/otrs/itsm/bundle4/ITSM-4.0.4.opm &
 wait
-/opt/otrs/bin/otrs.PackageManager.pl -a install -p ITSM-4.0.3.opm &
+/opt/otrs/bin/otrs.PackageManager.pl -a install -p ITSM-4.0.4.opm &
 wait
 /opt/otrs/bin/Cron.sh start otrs &
 wait
 service httpd start
+wait
+service crond start
 exec /usr/sbin/sshd -D
