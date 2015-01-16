@@ -10,12 +10,15 @@ RUN sed -i '/user=mysql/akey_buffer_size=32M' /etc/my.cnf
 RUN sed -i '/user=mysql/amax_allowed_packet=32M' /etc/my.cnf 
 
 #OTRS
-RUN wget http://ftp.otrs.org/pub/otrs/RPMS/rhel/6/otrs-4.0.3-01.noarch.rpm
-RUN yum -y install otrs-4.0.3-01.noarch.rpm --skip-broken 
+RUN wget http://ftp.otrs.org/pub/otrs/RPMS/rhel/6/otrs-4.0.4-01.noarch.rpm
+RUN yum -y install otrs-4.0.4-01.noarch.rpm --skip-broken 
 
 #OTRS COPY Configs
 ADD Config.pm /opt/otrs/Kernel/Config.pm
 RUN sed -i -e"s/mod_perl.c/mod_perl.so/" /etc/httpd/conf.d/zzz_otrs.conf
+
+#reconfigure httpd
+RUN sed -i "s/error\/noindex.html/otrs\/index.pl/" /etc/httpd/conf.d/welcome.conf
 
 #Start web and otrs and configure mysql
 ADD run.sh /run.sh
@@ -33,3 +36,4 @@ CMD ["/bin/bash -c 'for foo in *.dist; do cp $foo `basename $foo .dist`; done'"]
 USER root
 EXPOSE 22 80
 CMD ["/bin/bash", "/run.sh"]
+
