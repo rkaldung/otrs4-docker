@@ -14,4 +14,6 @@ wait
 /opt/otrs/bin/Cron.sh start otrs &
 wait
 service httpd start
+wait
+service crond start
 exec /usr/sbin/sshd -D
