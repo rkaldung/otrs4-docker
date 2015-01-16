@@ -17,6 +17,9 @@ RUN yum -y install otrs-4.0.4-01.noarch.rpm --skip-broken
 ADD Config.pm /opt/otrs/Kernel/Config.pm
 RUN sed -i -e"s/mod_perl.c/mod_perl.so/" /etc/httpd/conf.d/zzz_otrs.conf
 
+#reconfigure httpd
+RUN sed -i "s/error\/noindex.html/otrs\/index.pl/" /etc/httpd/conf.d/welcome.conf
+
 #Start web and otrs and configure mysql
 ADD run.sh /run.sh
 RUN chmod +x /*.sh
