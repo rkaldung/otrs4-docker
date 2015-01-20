@@ -39,12 +39,12 @@ This DOCKERFILE add's:
 * Apache
 * Perl
 * All needed dependencies
-* OTRS 4.0.3 (RPM) + ITSM 4.0.3 (OPM Package)
+* OTRS 4.0.5 (RPM) + ITSM 4.0.5 (OPM Package)
 
 ##Run Container
 
      docker pull hanneshal/otrs4-docker
-     docker run -d -p 80 -p 22 --name otrs402 hanneshal/otrs4-docker
+     docker run -d -p 80 -p 22 --name otrs405 hanneshal/otrs4-docker
      docker ps (to get the ports)
      
 
