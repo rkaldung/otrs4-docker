@@ -39,7 +39,7 @@ This DOCKERFILE add's:
 * Apache
 * Perl
 * All needed dependencies
-* OTRS 4.0.5 (RPM) + ITSM 4.0.5 (OPM Package)
+* OTRS 4.0.6 (RPM) + ITSM 4.0.6 (OPM Package)
 
 ##Run Container
 
