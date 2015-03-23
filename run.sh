@@ -17,8 +17,8 @@ wait
 wait
 /opt/otrs/bin/Cron.sh start otrs &
 wait
-curl -o Znuny4OTRS-Repo.opm http://portal.znuny.com/api/addon_repos/public/1420
-/opt/otrs/bin/otrs.PackageManager.pl -a install -p Znuny4OTRS-Repo.opm &
+curl -o /tmp/Znuny4OTRS-Repo.opm http://portal.znuny.com/api/addon_repos/public/1420
+/opt/otrs/bin/otrs.PackageManager.pl -a install -p /tmp/Znuny4OTRS-Repo.opm &
 wait
 service httpd start
 wait
