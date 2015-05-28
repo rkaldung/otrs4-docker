@@ -10,8 +10,8 @@ RUN sed -i '/user=mysql/akey_buffer_size=32M' /etc/my.cnf
 RUN sed -i '/user=mysql/amax_allowed_packet=32M' /etc/my.cnf 
 
 #OTRS
-RUN wget http://ftp.otrs.org/pub/otrs/RPMS/rhel/6/otrs-4.0.6-01.noarch.rpm
-RUN yum -y install otrs-4.0.6-01.noarch.rpm --skip-broken 
+RUN wget http://ftp.otrs.org/pub/otrs/RPMS/rhel/6/otrs-4.0.8-02.noarch.rpm
+RUN yum -y install otrs-4.0.8-02.noarch.rpm --skip-broken 
 
 #OTRS COPY Configs
 ADD Config.pm /opt/otrs/Kernel/Config.pm
